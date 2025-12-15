@@ -1,0 +1,24 @@
+CONSEGUIR CONTRASEÑA PARA ARGOCD
+
+kubectl get secret argocd-initial-admin-secret \
+  -n argocd \
+  -o jsonpath="{.data.password}" | base64 -d
+
+
+----------------------------
+
+VER LOS PODS DE ARGOCD
+
+kubectl get pods -n argocd
+
+-----------------------
+
+ESTE ES EL PORTFORWARD (TUNEL TEMPORAL ENTRE LA MAQUINA LOCAL Y EL POD)
+
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+-----------------------------------
+
+DAR CONTEXTO ( LE DICE A KUBECTL QUE CLUSTER HABLA, CON QUE CREDENCIALES Y EN QUE NAMESPACE POR DEFECTO)
+
+aws eks update-kubeconfig --region eu-west-1 --name eks-argocd-test

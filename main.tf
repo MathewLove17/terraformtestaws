@@ -1,18 +1,3 @@
-terraform {
-  required_version = ">= 1.3"
-
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-}
-
-provider "aws" {
-  region = var.region
-}
-
 ####################
 # VPC
 ####################
@@ -48,8 +33,11 @@ module "eks" {
   subnet_ids = module.vpc.private_subnets
 
   enable_cluster_creator_admin_permissions = true
-  enable_irsa = true
+  enable_irsa = true 
 
+  cluster_endpoint_public_access  = true
+  cluster_endpoint_private_access = true
+  
   eks_managed_node_groups = {
     gntest = {
       desired_size = 1
