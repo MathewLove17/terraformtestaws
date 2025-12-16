@@ -1,14 +1,13 @@
 # Terraform
 .terraform/
+.terraform.lock.hcl
 *.tfstate
 *.tfstate.*
-*.tfvars
 crash.log
 
-# Terraform lock (opcional, recomendado SÍ subirlo)
-# .terraform.lock.hcl
+# Terraform variables sensibles
+*.tfvars
 
-# Editor / OS
-.vscode/
-.idea/
+# OS
 .DS_Store
+Thumbs.db
