@@ -9,3 +9,7 @@ output "cluster_endpoint" {
 output "vpc_id" {
   value = module.vpc.vpc_id
 }
+
+output "cluster_ca" {
+  value = module.eks.cluster_certificate_authority_data
+}

@@ -21,8 +21,4 @@ resource "helm_release" "argocd" {
       }
     })
   ]
-
-  depends_on = [
-    module.eks
-  ]
 }
